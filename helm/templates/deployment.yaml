@@ -20,8 +20,15 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
           env:
-            {{- with .Values.psql }}
-            {{- toYaml . | nindent 12 }}
-            {{- end }}
+            - name: PSQL_HOST
+              value: {{ .Values.psql.host | quote }}
+            - name: PSQL_PORT
+              value: {{ .Values.psql.port | quote }}
+            - name: PSQL_USERNAME
+              value: {{ .Values.psql.username | quote }}
+            - name: PSQL_PASSWORD
+              value: {{ .Values.psql.password | quote }}
+            - name: PSQL_DATABASE
+              value: {{ .Values.psql.database | quote }}
       imagePullSecrets:
         - name: ghcr-secret
