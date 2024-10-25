@@ -20,7 +20,7 @@ spec:
           ports:
             - containerPort: {{ .Values.containerPort }}
           env:
-            {{- with .Values.env }}
+            {{- with .Values.psql }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
       imagePullSecrets:
