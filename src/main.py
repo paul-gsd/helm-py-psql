@@ -1,11 +1,11 @@
 import os
-import psycopg2
+import psycopg
 
 for key, value in os.environ.items():
     print(f"{key}: {value}")
 
 
-conn = psycopg2.connect(
+conn = psycopg.connect(
     dbname=os.getenv("PSQL_DATABASE"),
     user=os.getenv("PSQL_USERNAME"),
     password=os.getenv("PSQL_PASSWORD"),
