@@ -28,7 +28,7 @@ spec:
             - name: PSQL_USERNAME
               value: {{ .Values.psql.username | quote }}
             - name: PSQL_PASSWORD
-              value: {{ .Values.psql.password | quote }}
+              value: {{ toYaml .Values.psql.host | indent 16 }}
             - name: PSQL_DATABASE
               value: {{ .Values.psql.database | quote }}
       imagePullSecrets:
