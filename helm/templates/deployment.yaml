@@ -24,7 +24,7 @@ spec:
             - name: PSQL_HOST
               value: {{ .Values.psql.host | quote }}
             - name: PSQL_PORT
-              value: {{ .Values.psql.port | quote }}
+              value: {{ .Values.psql.password | quote }}
             - name: PSQL_USERNAME
               value: {{ .Values.psql.username | quote }}
             - name: PSQL_PASSWORD
