@@ -28,7 +28,11 @@ spec:
             - name: PSQL_USERNAME
               value: {{ .Values.psql.username | quote }}
             - name: PSQL_PASSWORD
+              {{- if kindIs "string" .Values.psql.password }}
+              value: {{ .Values.psql.password | quote }}
+              {{- else }}
               {{ .Values.psql.password | toYaml | nindent 14 }}
+              {{- end }}
             - name: PSQL_DATABASE
               value: {{ .Values.psql.database | quote }}
       imagePullSecrets:
